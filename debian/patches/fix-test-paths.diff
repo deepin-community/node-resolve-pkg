@@ -1,0 +1,21 @@
+Description: fix test paths
+Author: Xavier Guimard <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2020-10-06
+
+--- a/test.js
++++ b/test.js
+@@ -5,9 +5,9 @@
+ test('main', t => {
+ 	t.is(resolvePkg('nonexistent'), undefined);
+ 	t.is(resolvePkg('nonexistent/foo'), undefined);
+-	t.is(path.relative('.', resolvePkg('grunt-svgmin')), 'node_modules/grunt-svgmin');
+-	t.is(path.relative('.', resolvePkg('grunt-svgmin/tasks')), 'node_modules/grunt-svgmin/tasks');
+-	t.is(path.relative('.', resolvePkg('@someprivate/module-test')), 'node_modules/@someprivate/module-test');
+-	t.is(path.relative('.', resolvePkg('@someprivate/module-test/subdir')), 'node_modules/@someprivate/module-test/subdir');
++	t.is(path.relative('.', resolvePkg('grunt-svgmin')), 'debian/tests/test_modules/grunt-svgmin');
++	t.is(path.relative('.', resolvePkg('grunt-svgmin/tasks')), 'debian/tests/test_modules/grunt-svgmin/tasks');
++	t.is(path.relative('.', resolvePkg('@someprivate/module-test')), 'debian/tests/test_modules/@someprivate/module-test');
++	t.is(path.relative('.', resolvePkg('@someprivate/module-test/subdir')), 'debian/tests/test_modules/@someprivate/module-test/subdir');
+     t.end();
+ });
